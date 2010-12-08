@@ -2,21 +2,40 @@
 @c -*-texinfo-*-
 @c %**start of header
 @setfilename grub.info
-@settitle GRUB Manual
-@c %**end of header
-
 @include version.texi
-
+@settitle GNU GRUB Manual @value{VERSION}
 @c Unify all our little indices for now.
 @syncodeindex fn cp
 @syncodeindex vr cp
 @syncodeindex ky cp
 @syncodeindex pg cp
 @syncodeindex tp cp
+@c %**end of header
 
 @footnotestyle separate
 @paragraphindent 3
 @finalout
+
+@copying
+This manual is for GNU GRUB (version @value{VERSION},
+@value{UPDATED}).
+
+Copyright @copyright{} 1999,2000,2001,2002,2004,2006 Free Software Foundation, Inc.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being ``A GNU Manual,''
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled ``GNU Free Documentation
+License.''
+
+(a) The FSF's Back-Cover Text is: ``You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.''
+@end quotation
+@end copying
 
 @dircategory Kernel
 @direntry
@@ -34,53 +53,16 @@
 
 @setchapternewpage odd
 
-@ifinfo
-Copyright @copyright{} 1999,2000,2001,2002,2004 Free Software Foundation, Inc.
-
-Permission is granted to make and distribute verbatim copies of
-this manual provided the copyright notice and this permission notice
-are preserved on all copies.
-
-@ignore
-Permission is granted to process this file through TeX and print the
-results, provided the printed document carries a copying permission
-notice identical to this one except for the removal of this paragraph
-(this paragraph not being relevant to the printed manual).
-
-@end ignore
-
-Permission is granted to copy and distribute modified versions of this
-manual under the conditions for verbatim copying, provided also that
-the entire resulting derived work is distributed under the terms of a
-permission notice identical to this one.
-
-Permission is granted to copy and distribute translations of this manual
-into another language, under the above conditions for modified versions.
-@end ifinfo
-
 @titlepage
 @sp 10
-@title the GRUB manual
+@title the GNU GRUB manual
 @subtitle The GRand Unified Bootloader, version @value{VERSION}, @value{UPDATED}.
 @author Gordon Matzigkeit
 @author Yoshinori K. Okuji
 @c The following two commands start the copyright page.
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1999,2000,2001,2002,2004 Free Software Foundation, Inc.
-
-Permission is granted to make and distribute verbatim copies of
-this manual provided the copyright notice and this permission notice
-are preserved on all copies.
-Permission is granted to copy and distribute modified versions of this
-manual under the conditions for verbatim copying, provided that the entire
-resulting derived work is distributed under the terms of a permission
-notice identical to this one.
-
-Permission is granted to copy and distribute translations of this manual
-into another language, under the above conditions for modified versions,
-except that this permission notice may be stated in a translation approved
-by Free Software Foundation.
+@insertcopying
 @end titlepage
 
 @c Output the table of contents at the beginning.
@@ -91,12 +73,14 @@ by Free Software Foundation.
 
 @ifnottex
 @node Top
-@top GRUB manual
+@top GNU GRUB manual
 
 This is the documentation of GNU GRUB, the GRand Unified Bootloader,
 a flexible and powerful boot loader program for @sc{pc}s.
 
 This edition documents version @value{VERSION}.
+
+@insertcopying
 @end ifnottex
 
 @menu
@@ -112,7 +96,7 @@ This edition documents version @value{VERSION}.
 * Images::                      GRUB image files
 * Filesystem::                  Filesystem syntax and semantics
 * Interface::                   The menu and the command-line
-* Commands::                    The list of available builtin commands
+* Commands::                    The list of available built-in commands
 * Troubleshooting::             Error messages produced by GRUB
 * Invoking the grub shell::     How to use the grub shell
 * Invoking grub-install::       How to use the GRUB installer
@@ -124,6 +108,7 @@ This edition documents version @value{VERSION}.
 * Reporting bugs::              Where you should send a bug report
 * Future::                      Some future plans on GRUB
 * Internals::                   Hacking GRUB
+* Copying This Manual::         Copying This Manual
 * Index::
 @end menu
 
@@ -251,7 +236,7 @@ Support many of the various free 32-bit kernels that lack Multiboot
 compliance (primarily FreeBSD, NetBSD, OpenBSD, and
 Linux). Chain-loading of other boot loaders is also supported.
 
-@item Load multiples modules
+@item Load multiple modules
 Fully support the Multiboot feature of loading multiple modules.
 
 @item Load a configuration file
@@ -531,7 +516,7 @@ The device file name may be different. Consult the manual for your OS.
 @section Installing GRUB natively
 
 @strong{Caution:} Installing GRUB's stage1 in this manner will erase the
-normal boot-sector used by an OS.
+normal boot sector used by an OS.
 
 GRUB can currently boot GNU Mach, Linux, FreeBSD, NetBSD, and OpenBSD
 directly, so using it on a boot sector (the first sector of a
@@ -653,7 +638,7 @@ boot floppy with a filesystem. Here is an example:
 
 Another example is when you have a separate boot partition
 which is mounted at @file{/boot}. Since GRUB is a boot loader, it
-doesn't know anything about mountpoints at all. Thus, you need to run
+doesn't know anything about mount points at all. Thus, you need to run
 @command{grub-install} like this:
 
 @example
@@ -837,7 +822,7 @@ grub> @kbd{chainloader +1}
 
 @samp{+1} indicates that GRUB should read one sector from the start of
 the partition. The complete description about this syntax can be found
-in @ref{Block list syntax}.
+in @ref{blocklist syntax}.
 
 @item
 Run the command @command{boot} (@pxref{boot}).
@@ -1302,7 +1287,7 @@ timeout 30
 @end example
 
 As the comment says, GRUB will boot automatically in 30 seconds, unless
-interrupted with a keypress.
+interrupted with a key press.
 
 @example
 @group
@@ -1474,7 +1459,7 @@ Otherwise, run @command{ifconfig}, like this:
 grub> @kbd{ifconfig --address=192.168.110.23 --server=192.168.110.14}
 @end example
 
-You can also use @command{ifconfig} in conjuction with @command{bootp},
+You can also use @command{ifconfig} in conjunction with @command{bootp},
 @command{dhcp} or @command{rarp} (e.g. to reassign the server address
 manually). @xref{ifconfig}, for more details.
 
@@ -1763,7 +1748,7 @@ sector is 512 bytes, the size of this image is exactly 512 bytes.
 
 All @file{stage1} must do is to load Stage 2 or Stage 1.5 from a local
 disk. Because of the size restriction, @file{stage1} encodes the
-location of Stage 2 (or Stage 1.5) in a block list format, so it never
+location of Stage 2 (or Stage 1.5) in a blocklist format, so it never
 understand any filesystem structure.
 
 @item stage2
@@ -1823,7 +1808,7 @@ you see the files in a device or use the command @command{find}
 @menu
 * Device syntax::               How to specify devices
 * File name syntax::            How to specify files
-* Block list syntax::           How to specify block lists
+* blocklist syntax::           How to specify blocklists
 @end menu
 
 
@@ -1878,7 +1863,7 @@ a GRUB bootable CD-ROM}, for details.
 @section How to specify files
 
 There are two ways to specify files, by @dfn{absolute file name} and by
-@dfn{block list}.
+@dfn{blocklist}.
 
 An absolute file name resembles a Unix absolute file name, using
 @samp{/} for the directory separator (not @samp{\} as in DOS). One
@@ -1890,10 +1875,10 @@ say, @samp{(hd1,0)} by the command @command{root} (@pxref{root}), then
 @code{/boot/kernel} is the same as @code{(hd1,0)/boot/kernel}.
 
 
-@node Block list syntax
-@section How to specify block lists
+@node blocklist syntax
+@section How to specify blocklists
 
-A block list is used for specifying a file that doesn't appear in the
+A blocklist is used for specifying a file that doesn't appear in the
 filesystem, like a chainloader. The syntax is
 @code{[@var{offset}]+@var{length}[,[@var{offset}]+@var{length}]@dots{}}.
 Here is an example:
@@ -2658,7 +2643,7 @@ you forget a command, you can run the command @command{help}
 (@pxref{help}).
 
 @menu
-* blocklist::                   Get the block list notation of a file
+* blocklist::                   Get the blocklist notation of a file
 * boot::                        Start up your operating system
 * cat::                         Show the contents of a file
 * chainloader::                 Chain-load another boot loader
@@ -2693,9 +2678,9 @@ you forget a command, you can run the command @command{help}
 * savedefault::                 Save current entry as the default entry
 * setup::                       Set up GRUB's installation automatically
 * testload::                    Load a file for testing a filesystem
-* testvbe::                     Test VESA BIOS EXTENSION
+* testvbe::                     Test VESA BIOS Extension
 * uppermem::                    Set the upper memory size
-* vbeprobe::                    Probe VESA BIOS EXTENSION
+* vbeprobe::                    Probe VESA BIOS Extension
 @end menu
 
 
@@ -2703,7 +2688,7 @@ you forget a command, you can run the command @command{help}
 @subsection blocklist
 
 @deffn Command blocklist file
-Print the block list notation of the file @var{file}. @xref{Block list
+Print the blocklist notation of the file @var{file}. @xref{blocklist
 syntax}.
 @end deffn
 
@@ -2875,7 +2860,7 @@ is shut down using APM.
 @subsection help
 
 @deffn Command help @option{--all} [pattern @dots{}]
-Display helpful information about builtin commands. If you do not
+Display helpful information about built-in commands. If you do not
 specify @var{pattern}, this command shows short descriptions of most of
 available commands. If you specify the option @option{--all} to this
 command, short descriptions of rarely used commands (such as
@@ -3124,7 +3109,7 @@ hex format.
 Set the current @dfn{root device} to the device @var{device}, then
 attempt to mount it to get the partition size (for passing the partition
 descriptor in @code{ES:ESI}, used by some chain-loaded boot loaders), the
-BSD drive-type (for booting BSD kernels using their native boot format),
+BSD drive type (for booting BSD kernels using their native boot format),
 and correctly determine the PC partition where a BSD sub-partition is
 located. The optional @var{hdbias} parameter is a number to tell a BSD
 kernel how many BIOS drive numbers are on controllers before the current
@@ -3225,7 +3210,7 @@ to try loading a kernel.
 @subsection testvbe
 
 @deffn Command testvbe mode
-Test the VESA BIOS EXTENSION mode @var{mode}. This command will switch
+Test the VESA BIOS Extension mode @var{mode}. This command will switch
 your video card to the graphics mode, and show an endless animation. Hit
 any key to return. See also @ref{vbeprobe}.
 @end deffn
@@ -3249,7 +3234,7 @@ also be used for debugging purposes to lie to an OS.
 @subsection vbeprobe
 
 @deffn Command vbeprobe [mode]
-Probe VESA BIOS EXTENSION information. If the mode @var{mode} is
+Probe VESA BIOS Extension information. If the mode @var{mode} is
 specified, show only the information about @var{mode}. Otherwise, this
 command lists up available VBE modes on the screen. See also
 @ref{testvbe}.
@@ -3711,7 +3696,7 @@ into/from your computer.
 @chapter Invoking grub-md5-crypt
 
 The program @command{grub-md5-crypt} encrypts a password in MD5 format.
-This is just a frontend of the grub shell (@pxref{Invoking the grub
+This is just a front-end of the grub shell (@pxref{Invoking the grub
 shell}). Passwords encrypted by this program can be used with the
 command @command{password} (@pxref{password}).
 
@@ -3933,7 +3918,7 @@ for.
 
 @item
 Write down anything that you think might be related. Please understand
-that we often need to reproduce the same problem you encounterred in our
+that we often need to reproduce the same problem you encountered in our
 environment. So your information should be sufficient for us to do the
 same thing---Don't forget that we cannot see your computer directly. If
 you are not sure whether to state a fact or leave it out, state it!
@@ -3963,6 +3948,16 @@ homepage}.
 
 @c Separate the programming guide.
 @include internals.texi
+
+
+@node Copying This Manual
+@appendix Copying This Manual
+
+@menu
+* GNU Free Documentation License::  License for copying this manual.
+@end menu
+
+@include fdl.texi
 
 
 @node Index
