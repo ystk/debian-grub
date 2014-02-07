@@ -1,6 +1,7 @@
-diff -ur grub-0.97/util/grub-install.in grub-0.97.raid/util/grub-install.in
---- grub-0.97/util/grub-install.in	2008-04-30 22:42:03.000000000 +0200
-+++ grub-0.97.raid/util/grub-install.in	2008-04-30 22:46:45.000000000 +0200
+Index: b/util/grub-install.in
+===================================================================
+--- a/util/grub-install.in
++++ b/util/grub-install.in
 @@ -137,106 +137,12 @@
  	exit 1
      fi
@@ -48,7 +49,7 @@ diff -ur grub-0.97/util/grub-install.in grub-0.97.raid/util/grub-install.in
 -	echo "grub-install does not support your OS yet." 1>&2
 -	exit 1 ;;
 -    esac
- 
+-
 -    # Get the drive name.
 -    tmp_drive=`grep -v '^#' $device_map | grep "$tmp_disk *$" \
 -	| sed 's%.*\(([hf]d[0-9][a-z0-9,]*)\).*%\1%'`
@@ -58,7 +59,7 @@ diff -ur grub-0.97/util/grub-install.in grub-0.97.raid/util/grub-install.in
 -	echo "$1 does not have any corresponding BIOS drive." 1>&2
 -	exit 1
 -    fi
--
+ 
 -    if test "x$tmp_part" != x; then
 -	# If a partition is specified, we need to translate it into the
 -	# GRUB's syntax.
@@ -121,10 +122,7 @@ diff -ur grub-0.97/util/grub-install.in grub-0.97.raid/util/grub-install.in
  
      if test -z "$tmp_fname"; then
  	echo "Could not find device for $1" 2>&1
-diff -ur grub-0.97/util/grub-install.in grub-0.97.new/util/grub-install.in
---- grub-0.97/util/grub-install.in	2008-07-23 01:14:29.000000000 +0200
-+++ grub-0.97.new/util/grub-install.in	2008-07-23 01:16:46.000000000 +0200
-@@ -288,22 +288,7 @@
+@@ -384,22 +288,7 @@
  if test -f "$device_map"; then
      :
  else

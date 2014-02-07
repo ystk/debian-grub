@@ -1,9 +1,10 @@
 
 Patch from Red Hat. See #463236, #463123 (and #491076 for the reviewed version)
 
-diff -ur grub-0.97/stage2/fsys_ext2fs.c grub-0.97.new/stage2/fsys_ext2fs.c
---- grub-0.97/stage2/fsys_ext2fs.c	2008-07-23 01:18:18.000000000 +0200
-+++ grub-0.97.new/stage2/fsys_ext2fs.c	2008-07-25 14:33:29.000000000 +0200
+Index: b/stage2/fsys_ext2fs.c
+===================================================================
+--- a/stage2/fsys_ext2fs.c
++++ b/stage2/fsys_ext2fs.c
 @@ -79,7 +79,52 @@
      __u32 s_rev_level;		/* Revision level */
      __u16 s_def_resuid;		/* Default uid for reserved blocks */

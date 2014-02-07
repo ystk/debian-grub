@@ -3,10 +3,11 @@
   Status: pending
   Updated by: Otavio Salvador - resync with 0.97 code
 
-diff -r 190816689333 stage2/char_io.c
---- a/stage2/char_io.c	Sat Nov  5 15:00:55 2005
-+++ b/stage2/char_io.c	Sat Nov  5 13:09:55 2005
-@@ -1175,13 +1175,13 @@
+Index: b/stage2/char_io.c
+===================================================================
+--- a/stage2/char_io.c
++++ b/stage2/char_io.c
+@@ -1231,13 +1231,13 @@
  #endif /* ! STAGE1_5 */
  
  int
@@ -24,7 +25,7 @@ diff -r 190816689333 stage2/char_io.c
      {
        int ret;
  # if defined(HAVE_START_SYMBOL)
-@@ -1192,7 +1192,7 @@
+@@ -1248,7 +1248,7 @@
        return ret;
      }
  
@@ -33,10 +34,11 @@ diff -r 190816689333 stage2/char_io.c
      {
        int ret;
  # if defined(HAVE_END_SYMBOL)
-diff -r 190816689333 stage2/shared.h
---- a/stage2/shared.h	Sat Nov  5 15:00:55 2005
-+++ b/stage2/shared.h	Sat Nov  5 13:09:55 2005
-@@ -911,7 +911,7 @@
+Index: b/stage2/shared.h
+===================================================================
+--- a/stage2/shared.h
++++ b/stage2/shared.h
+@@ -921,7 +921,7 @@
  int nul_terminate (char *str);
  int get_based_digit (int c, int base);
  int safe_parse_maxint (char **str_ptr, int *myint_ptr);

@@ -54,44 +54,19 @@ ifeq ($(DEB_BUILD_GNU_CPU),x86_64)
   LDFLAGS=-static
 endif
 
-# We didn't test GRUB Legacy with GCC 4.4, and it's not worth
-# the risk since it's being replaced by GRUB 2.
-CC=gcc-4.3
-
-patch: patch-stamp
-patch-stamp:
-	dh_testdir
-
-	# Add here commands to patch the source..
-	set -e ; for i in `cat debian/patches/00list | grep -v ^#` ; \
-	do \
-	echo "--- $$i ---" ; patch -p1 < debian/patches/$$i ; \
-	done
-
-	touch patch-stamp
+patch:
+	dh_quilt_patch
 
 unpatch:
-	dh_testdir
-
-	# Add here commands to reverse patchs to the source.
-	if [ -f patch-stamp ] ; then \
-	set -e ; for i in `tac debian/patches/00list | grep -v ^#` ; \
-	do \
-	echo "--- $$i ---" ; patch -R -p1 < debian/patches/$$i ; \
-	done ; \
-	fi \
-
-	if [ -f patch-stamp ] ; then \
-	rm patch-stamp ; \
-	fi
+	dh_quilt_unpatch
 
 configure: configure-stamp
-configure-stamp: patch-stamp
+configure-stamp: patch
 	dh_testdir
 
 	# Add here commands to configure the package.
 	aclocal-1.9 && automake-1.9 && autoconf
-	CC=$(CC) LDFLAGS=$(LDFLAGS) ./configure \
+	LDFLAGS=$(LDFLAGS) ./configure \
 		--host=$(DEB_HOST_GNU_TYPE) \
 		--build=$(DEB_BUILD_GNU_TYPE) \
 		--prefix=/usr \
@@ -222,10 +197,10 @@ install-arch:
 	rm -rf debian/grub-legacy/usr/lib/grub/tmp/
 
 	mkdir -p $(CURDIR)/debian/grub-legacy/usr/share/lintian/overrides
-	cd $(CURDIR)/debian/grub-legacy && find ./usr/bin/ -name mbchk \
+	cd $(CURDIR)/debian/grub-legacy && find usr/bin/ -name mbchk \
 		| sed -e "s%.*%grub-legacy: statically-linked-binary &%g" \
 	> $(CURDIR)/debian/grub-legacy/usr/share/lintian/overrides/grub-legacy
-	cd $(CURDIR)/debian/grub-legacy && find ./usr/sbin/ -name grub \
+	cd $(CURDIR)/debian/grub-legacy && find usr/sbin/ -name grub \
 		| sed -e "s%.*%grub-legacy: statically-linked-binary &%g" \
 	>> $(CURDIR)/debian/grub-legacy/usr/share/lintian/overrides/grub-legacy
 

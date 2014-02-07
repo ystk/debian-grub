@@ -5,9 +5,11 @@
      It fix the max address of initrd image and include a safe
      default in case of it isn't available
 
---- grub-0.94/stage2/boot.c.orig	2004-01-11 09:49:05.000000000 +0100
-+++ grub-0.94/stage2/boot.c	2004-03-04 16:11:21.857403508 +0100
-@@ -810,8 +810,11 @@
+Index: b/stage2/boot.c
+===================================================================
+--- a/stage2/boot.c
++++ b/stage2/boot.c
+@@ -824,8 +824,11 @@
      moveto = (mbi.mem_upper + 0x400) << 10;
    
    moveto = (moveto - len) & 0xfffff000;

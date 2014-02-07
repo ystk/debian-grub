@@ -1,3 +1,42 @@
+grub (0.97-67) unstable; urgency=low
+
+  * Fix typo in grub-set-default calls when generating /boot/grub/default
+    from scratch (closes: #560417).
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 29 Jan 2013 16:13:56 +0000
+
+grub (0.97-66.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Drop the grub dummy package (closes: #686182).
+  * rules: Update lintian-overrides for statically-linked-binary.
+
+ -- David Prévot <taffit@debian.org>  Mon, 03 Dec 2012 17:05:45 -0400
+
+grub (0.97-66) unstable; urgency=low
+
+  [ Colin Watson ]
+  * Build stage2 with -fno-reorder-functions to prevent
+    unlikely-to-be-executed functions being reordered before _start with GCC
+    4.6 (LP: #837815).
+
+  [ Didier Raboud ]
+  * Build with the default gcc (closes: #594283).
+
+ -- Colin Watson <cjwatson@debian.org>  Sat, 19 Nov 2011 01:54:49 +0000
+
+grub (0.97-65) unstable; urgency=low
+
+  * Fix grub/migrate_from_legacy title to not end with a full stop.
+  * Fix update-grub(8) groff typo (".bar" instead of ".br").
+  * Adjust doc-base file to account for renaming of grub.info to
+    grub-legacy.info.
+  * Compare -trunk kernels earlier than numeric ABIs (thanks, Aaron M. Ucko
+    and Andreas Beckmann; closes: #570318).
+  * Convert from home-grown patch system to quilt.
+
+ -- Colin Watson <cjwatson@debian.org>  Thu, 17 Mar 2011 13:34:14 +0000
+
 grub (0.97-64) unstable; urgency=low
 
   * Exit silently from zz-update-grub kernel hook if update-grub does not

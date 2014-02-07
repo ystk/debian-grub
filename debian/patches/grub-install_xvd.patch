@@ -1,5 +1,7 @@
---- a/util/grub-install.in.orig	2008-04-24 07:25:47.000000000 +0000
-+++ b/util/grub-install.in	2008-04-24 07:31:05.000000000 +0000
+Index: b/util/grub-install.in
+===================================================================
+--- a/util/grub-install.in
++++ b/util/grub-install.in
 @@ -104,7 +104,7 @@
  	)"
  

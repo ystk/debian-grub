@@ -4,9 +4,10 @@ some code from other sources. He's cooperative about rewriting and/or doing
 the paperwork.
 Upstream: pending
 
-diff -ur svn.old/util/grub-install.in svn/util/grub-install.in
---- svn.old/util/grub-install.in	2004-07-21 00:45:21.000000000 +0200
-+++ svn/util/grub-install.in	2004-07-23 00:47:36.000000000 +0200
+Index: b/util/grub-install.in
+===================================================================
+--- a/util/grub-install.in
++++ b/util/grub-install.in
 @@ -81,6 +81,50 @@
  EOF
  }

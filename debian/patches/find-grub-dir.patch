@@ -1,6 +1,7 @@
-diff -uNr grub-0.97/util/grub-set-default.in grub-0.97-changed/util/grub-set-default.in
---- grub-0.97/util/grub-set-default.in	2007-03-06 22:17:12.000000000 +0000
-+++ grub-0.97-changed/util/grub-set-default.in	2007-03-07 00:00:08.000000000 +0000
+Index: b/util/grub-set-default.in
+===================================================================
+--- a/util/grub-set-default.in
++++ b/util/grub-set-default.in
 @@ -74,18 +74,45 @@
      exit 1
  fi

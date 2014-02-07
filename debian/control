@@ -5,14 +5,14 @@ Maintainer: GRUB Maintainers <pkg-grub-devel@lists.alioth.debian.org>
 Uploaders: Robert Millan <rmh.debian@aybabtu.com>, Felix Zielcke <fzielcke@z-51.de>, Colin Watson <cjwatson@debian.org>
 DM-Upload-Allowed: yes
 Build-Depends: debhelper (>= 5),
+ quilt (>= 0.46-7),
  automake1.9,
  autoconf,
  autotools-dev,
  texinfo,
  libncurses5-dev | libncurses-dev,
  lib32ncurses5-dev [amd64],
- gcc-4.3,
- gcc-4.3-multilib [amd64]
+ gcc-multilib [amd64]
 Build-Depends-Indep: texi2html
 Standards-Version: 3.8.3
 Vcs-Svn: svn://svn.debian.org/svn/pkg-grub/grub/
@@ -31,16 +31,6 @@ Description: GRand Unified Bootloader (Legacy version)
  .
  Please note that GRUB Legacy is in maintanance mode and new features are
  only accepted in GRUB 2 (grub-pc package).
-
-Package: grub
-Architecture: i386 hurd-i386 amd64
-Depends: ${shlibs:Depends}, grub-pc, ${misc:Depends}
-Description: GRand Unified Bootloader (dummy package)
- This is a dummy transitional package to handle upgrades.
- .
- Note: This package depends on `grub-pc', which upgrades your
- system to GRUB 2.  If you want to continue using GRUB Legacy, it
- is provided in the `grub-legacy' package.
 
 Package: grub-disk
 Architecture: all

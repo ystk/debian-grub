@@ -1,6 +1,7 @@
-diff -ru grub-0.95+cvs20040624/lib/device.c grub-0.95+cvs20040624.debian/lib/device.c
---- grub-0.95+cvs20040624/lib/device.c	2004-05-23 18:45:35 +0200
-+++ grub-0.95+cvs20040624.debian/lib/device.c	2004-10-06 13:43:44 +0200
+Index: b/lib/device.c
+===================================================================
+--- a/lib/device.c
++++ b/lib/device.c
 @@ -403,6 +403,18 @@
  }
  
@@ -20,8 +21,8 @@ diff -ru grub-0.95+cvs20040624/lib/device.c grub-0.95+cvs20040624.debian/lib/dev
  get_ataraid_disk_name (char *name, int unit)
  {
    sprintf (name, "/dev/ataraid/d%c", unit + '0');
-@@ -798,6 +810,74 @@
- 	  }
+@@ -830,6 +842,74 @@
+           }
        }
    }
 +

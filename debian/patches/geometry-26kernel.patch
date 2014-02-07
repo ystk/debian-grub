@@ -5,9 +5,10 @@
      Put geometry discover inside of grub code since kernel 2.6
      doesn't do that anymore.
 
-diff -ur grub-0.97.old/lib/device.c grub-0.97/lib/device.c
---- grub-0.97.old/lib/device.c	2008-05-20 14:05:52.000000000 +0200
-+++ grub-0.97/lib/device.c	2008-05-20 14:07:36.000000000 +0200
+Index: b/lib/device.c
+===================================================================
+--- a/lib/device.c
++++ b/lib/device.c
 @@ -131,6 +131,152 @@
  #include <shared.h>
  #include <device.h>
@@ -184,7 +185,7 @@ diff -ur grub-0.97.old/lib/device.c grub-0.97/lib/device.c
      geom->total_sectors = nr / 512;
      
      goto success;
-@@ -873,6 +1015,7 @@
+@@ -984,6 +1126,7 @@
  {
    char dev[PATH_MAX];	/* XXX */
    int fd;
@@ -192,7 +193,7 @@ diff -ur grub-0.97.old/lib/device.c grub-0.97/lib/device.c
    
    if ((partition & 0x00FF00) != 0x00FF00)
      {
-@@ -905,35 +1048,13 @@
+@@ -1018,35 +1161,13 @@
        errnum = ERR_NO_PART;
        return 0;
      }

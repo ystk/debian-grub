@@ -1,5 +1,7 @@
---- grub-0.95+cvs20040624.orig/grub/asmstub.c
-+++ grub-0.95+cvs20040624/grub/asmstub.c
+Index: b/grub/asmstub.c
+===================================================================
+--- a/grub/asmstub.c
++++ b/grub/asmstub.c
 @@ -42,6 +42,12 @@
  #include <sys/time.h>
  #include <termios.h>
@@ -13,7 +15,7 @@
  
  #ifdef __linux__
  # include <sys/ioctl.h>		/* ioctl */
-@@ -142,6 +148,22 @@
+@@ -148,6 +154,22 @@
    assert (grub_scratch_mem == 0);
    scratch = malloc (0x100000 + EXTENDED_MEMSIZE + 15);
    assert (scratch);

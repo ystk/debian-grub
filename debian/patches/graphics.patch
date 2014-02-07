@@ -1,7 +1,8 @@
-diff -Naur grub-0.97.orig/configure.ac grub-0.97/configure.ac
---- grub-0.97.orig/configure.ac	2005-05-07 23:36:03.000000000 -0300
-+++ grub-0.97/configure.ac	2005-06-12 20:56:49.000000000 -0300
-@@ -595,6 +595,11 @@
+Index: b/configure.ac
+===================================================================
+--- a/configure.ac
++++ b/configure.ac
+@@ -606,6 +606,11 @@
    [  --enable-diskless       enable diskless support])
  AM_CONDITIONAL(DISKLESS_SUPPORT, test "x$enable_diskless" = xyes)
  
@@ -13,9 +14,10 @@ diff -Naur grub-0.97.orig/configure.ac grub-0.97/configure.ac
  dnl Hercules terminal
  AC_ARG_ENABLE(hercules,
    [  --disable-hercules      disable hercules terminal support])
-diff -Naur grub-0.97.orig/stage2/asm.S grub-0.97/stage2/asm.S
---- grub-0.97.orig/stage2/asm.S	2004-06-19 13:55:22.000000000 -0300
-+++ grub-0.97/stage2/asm.S	2005-06-13 14:05:31.000000000 -0300
+Index: b/stage2/asm.S
+===================================================================
+--- a/stage2/asm.S
++++ b/stage2/asm.S
 @@ -2216,7 +2216,304 @@
  	pop	%ebx
  	pop	%ebp
@@ -322,9 +324,10 @@ diff -Naur grub-0.97.orig/stage2/asm.S grub-0.97/stage2/asm.S
  /*
   * getrtsecs()
   *	if a seconds value can be read, read it and return it (BCD),
-diff -Naur grub-0.97.orig/stage2/builtins.c grub-0.97/stage2/builtins.c
---- grub-0.97.orig/stage2/builtins.c	2005-02-15 19:58:23.000000000 -0200
-+++ grub-0.97/stage2/builtins.c	2005-06-13 18:44:03.000000000 -0300
+Index: b/stage2/builtins.c
+===================================================================
+--- a/stage2/builtins.c
++++ b/stage2/builtins.c
 @@ -28,6 +28,10 @@
  #include <filesys.h>
  #include <term.h>
@@ -799,9 +802,10 @@ diff -Naur grub-0.97.orig/stage2/builtins.c grub-0.97/stage2/builtins.c
 +#endif
    0
  };
-diff -Naur grub-0.97.orig/stage2/char_io.c grub-0.97/stage2/char_io.c
---- grub-0.97.orig/stage2/char_io.c	2005-02-01 18:51:23.000000000 -0200
-+++ grub-0.97/stage2/char_io.c	2005-06-12 20:56:49.000000000 -0300
+Index: b/stage2/char_io.c
+===================================================================
+--- a/stage2/char_io.c
++++ b/stage2/char_io.c
 @@ -29,12 +29,17 @@
  # include <serial.h>
  #endif
@@ -1142,9 +1146,10 @@ diff -Naur grub-0.97.orig/stage2/char_io.c grub-0.97/stage2/char_io.c
  void *
  grub_memmove (void *to, const void *from, int len)
  {
-diff -Naur grub-0.97.orig/stage2/cmdline.c grub-0.97/stage2/cmdline.c
---- grub-0.97.orig/stage2/cmdline.c	2004-08-16 20:23:01.000000000 -0300
-+++ grub-0.97/stage2/cmdline.c	2005-06-12 20:56:49.000000000 -0300
+Index: b/stage2/cmdline.c
+===================================================================
+--- a/stage2/cmdline.c
++++ b/stage2/cmdline.c
 @@ -50,10 +50,11 @@
  void
  print_cmdline_message (int forever)
@@ -1161,9 +1166,10 @@ diff -Naur grub-0.97.orig/stage2/cmdline.c grub-0.97/stage2/cmdline.c
  }
  
  /* Find the builtin whose command name is COMMAND and return the
-diff -Naur grub-0.97.orig/stage2/graphics.c grub-0.97/stage2/graphics.c
---- grub-0.97.orig/stage2/graphics.c	1969-12-31 21:00:00.000000000 -0300
-+++ grub-0.97/stage2/graphics.c	2005-06-13 19:13:31.000000000 -0300
+Index: b/stage2/graphics.c
+===================================================================
+--- /dev/null
++++ b/stage2/graphics.c
 @@ -0,0 +1,585 @@
 +/*
 + * graphics.c - graphics mode support for GRUB
@@ -1750,9 +1756,10 @@ diff -Naur grub-0.97.orig/stage2/graphics.c grub-0.97/stage2/graphics.c
 +}
 +
 +#endif /* SUPPORT_GRAPHICS */
-diff -Naur grub-0.97.orig/stage2/graphics.h grub-0.97/stage2/graphics.h
---- grub-0.97.orig/stage2/graphics.h	1969-12-31 21:00:00.000000000 -0300
-+++ grub-0.97/stage2/graphics.h	2005-06-12 20:56:49.000000000 -0300
+Index: b/stage2/graphics.h
+===================================================================
+--- /dev/null
++++ b/stage2/graphics.h
 @@ -0,0 +1,44 @@
 +/* graphics.h - graphics console interface */
 +/*
@@ -1798,9 +1805,10 @@ diff -Naur grub-0.97.orig/stage2/graphics.h grub-0.97/stage2/graphics.h
 +extern int view_x0, view_y0, view_x1, view_y1;
 +
 +#endif /* GRAPHICS_H */
-diff -Naur grub-0.97.orig/stage2/Makefile.am grub-0.97/stage2/Makefile.am
---- grub-0.97.orig/stage2/Makefile.am	2005-02-02 18:37:35.000000000 -0200
-+++ grub-0.97/stage2/Makefile.am	2005-06-12 20:56:49.000000000 -0300
+Index: b/stage2/Makefile.am
+===================================================================
+--- a/stage2/Makefile.am
++++ b/stage2/Makefile.am
 @@ -7,7 +7,7 @@
          fat.h filesys.h freebsd.h fs.h hercules.h i386-elf.h \
  	imgact_aout.h iso9660.h jfs.h mb_header.h mb_info.h md5.h \
@@ -1845,10 +1853,11 @@ diff -Naur grub-0.97.orig/stage2/Makefile.am grub-0.97/stage2/Makefile.am
  pre_stage2_exec_CFLAGS = $(STAGE2_COMPILE) $(FSYS_CFLAGS)
  pre_stage2_exec_CCASFLAGS = $(STAGE2_COMPILE) $(FSYS_CFLAGS)
  pre_stage2_exec_LDFLAGS = $(PRE_STAGE2_LINK)
-diff -Naur grub-0.97.orig/stage2/shared.h grub-0.97/stage2/shared.h
---- grub-0.97.orig/stage2/shared.h	2004-06-19 13:40:09.000000000 -0300
-+++ grub-0.97/stage2/shared.h	2005-06-12 20:56:49.000000000 -0300
-@@ -792,6 +792,11 @@
+Index: b/stage2/shared.h
+===================================================================
+--- a/stage2/shared.h
++++ b/stage2/shared.h
+@@ -796,6 +796,11 @@
  /* Set the cursor position. */
  void gotoxy (int x, int y);
  
@@ -1860,7 +1869,7 @@ diff -Naur grub-0.97.orig/stage2/shared.h grub-0.97/stage2/shared.h
  /* Displays an ASCII character.  IBM displays will translate some
     characters to special graphical ones (see the DISP_* constants). */
  void grub_putchar (int c);
-@@ -871,6 +876,7 @@
+@@ -875,6 +880,7 @@
  int grub_tolower (int c);
  int grub_isspace (int c);
  int grub_strncat (char *s1, const char *s2, int n);
@@ -1868,9 +1877,10 @@ diff -Naur grub-0.97.orig/stage2/shared.h grub-0.97/stage2/shared.h
  void *grub_memmove (void *to, const void *from, int len);
  void *grub_memset (void *start, int c, int len);
  int grub_strncat (char *s1, const char *s2, int n);
-diff -Naur grub-0.97.orig/stage2/stage2.c grub-0.97/stage2/stage2.c
---- grub-0.97.orig/stage2/stage2.c	2005-03-19 14:51:57.000000000 -0300
-+++ grub-0.97/stage2/stage2.c	2005-06-13 22:38:08.000000000 -0300
+Index: b/stage2/stage2.c
+===================================================================
+--- a/stage2/stage2.c
++++ b/stage2/stage2.c
 @@ -20,6 +20,12 @@
  #include <shared.h>
  #include <term.h>
@@ -2202,7 +2212,7 @@ diff -Naur grub-0.97.orig/stage2/stage2.c grub-0.97/stage2/stage2.c
  
  		  /* Wipe out the previously entered password */
  		  grub_memset (entered, 0, sizeof (entered));
-@@ -714,6 +737,15 @@
+@@ -717,6 +740,15 @@
    
    cls ();
    setcursor (1);
@@ -2218,7 +2228,7 @@ diff -Naur grub-0.97.orig/stage2/stage2.c grub-0.97/stage2/stage2.c
    
    while (1)
      {
-@@ -748,6 +780,13 @@
+@@ -752,6 +784,13 @@
  	break;
      }
  
@@ -2232,7 +2242,7 @@ diff -Naur grub-0.97.orig/stage2/stage2.c grub-0.97/stage2/stage2.c
    show_menu = 1;
    goto restart;
  }
-@@ -1050,6 +1089,16 @@
+@@ -1054,6 +1093,16 @@
  	  while (is_preset);
  	}
  
@@ -2249,9 +2259,10 @@ diff -Naur grub-0.97.orig/stage2/stage2.c grub-0.97/stage2/stage2.c
        if (! num_entries)
  	{
  	  /* If no acceptable config file, goto command-line, starting
-diff -Naur grub-0.97.orig/stage2/term.h grub-0.97/stage2/term.h
---- grub-0.97.orig/stage2/term.h	2003-07-09 08:45:53.000000000 -0300
-+++ grub-0.97/stage2/term.h	2005-06-13 14:07:40.000000000 -0300
+Index: b/stage2/term.h
+===================================================================
+--- a/stage2/term.h
++++ b/stage2/term.h
 @@ -60,6 +60,8 @@
    const char *name;
    /* The feature flags defined above.  */

@@ -1,6 +1,7 @@
-diff -Nur grub-0.97-orig/util/grub-install.in grub-0.97/util/grub-install.in
---- grub-0.97-orig/util/grub-install.in	2006-07-10 17:39:19.000000000 -0300
-+++ grub-0.97/util/grub-install.in	2006-07-10 17:28:51.000000000 -0300
+Index: b/util/grub-install.in
+===================================================================
+--- a/util/grub-install.in
++++ b/util/grub-install.in
 @@ -148,13 +148,16 @@
  				  -e 's%\(d[0-9]*\)p[0-9]*$%\1%' \
  				  -e 's%\(fd[0-9]*\)$%\1%' \

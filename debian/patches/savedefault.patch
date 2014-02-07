@@ -1,7 +1,8 @@
-diff -uNr grub-0.97.orig/stage2/builtins.c grub-0.97/stage2/builtins.c
---- grub-0.97.orig/stage2/builtins.c	2005-02-15 21:58:23.000000000 +0000
-+++ grub-0.97/stage2/builtins.c	2007-03-06 22:32:02.000000000 +0000
-@@ -82,6 +82,10 @@
+Index: b/stage2/builtins.c
+===================================================================
+--- a/stage2/builtins.c
++++ b/stage2/builtins.c
+@@ -86,6 +86,10 @@
     inside other functions.  */
  static int configfile_func (char *arg, int flags);
  
@@ -12,7 +13,7 @@ diff -uNr grub-0.97.orig/stage2/builtins.c grub-0.97/stage2/builtins.c
  /* Initialize the data for builtins.  */
  void
  init_builtins (void)
-@@ -3221,7 +3225,109 @@
+@@ -3512,7 +3516,109 @@
  static int
  savedefault_func (char *arg, int flags)
  {
@@ -123,7 +124,7 @@ diff -uNr grub-0.97.orig/stage2/builtins.c grub-0.97/stage2/builtins.c
    unsigned long tmp_drive = saved_drive;
    unsigned long tmp_partition = saved_partition;
    char *default_file = (char *) DEFAULT_FILE_BUF;
-@@ -3297,22 +3403,26 @@
+@@ -3588,22 +3694,26 @@
        
        disk_read_hook = disk_read_savesect_func;
        len = grub_read (buf, sizeof (buf));
@@ -157,10 +158,11 @@ diff -uNr grub-0.97.orig/stage2/builtins.c grub-0.97/stage2/builtins.c
        
        /* Set up a string to be written.  */
        grub_memset (buf, '\n', sizeof (buf));
-diff -uNr grub-0.97.orig/stage2/stage2.c grub-0.97/stage2/stage2.c
---- grub-0.97.orig/stage2/stage2.c	2005-03-19 17:51:57.000000000 +0000
-+++ grub-0.97/stage2/stage2.c	2007-03-06 22:17:55.000000000 +0000
-@@ -891,8 +891,16 @@
+Index: b/stage2/stage2.c
+===================================================================
+--- a/stage2/stage2.c
++++ b/stage2/stage2.c
+@@ -934,8 +934,16 @@
  	      len = grub_read (buf, sizeof (buf));
  	      if (len > 0)
  		{
