@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
 for i in /boot/grub/device.map ; do
   if test -e $i ; then

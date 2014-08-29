@@ -1,3 +1,12 @@
+grub (0.97-68) unstable; urgency=low
+
+  * Update Vcs-* fields for Bazaar (closes: #628651).
+  * Use 'set -e' rather than '#!/bin/bash -e' in various scripts.
+  * Port to modern Automake versions and use dh-autoreconf (closes:
+    #724383).
+
+ -- Colin Watson <cjwatson@debian.org>  Thu, 24 Jul 2014 00:31:36 +0100
+
 grub (0.97-67) unstable; urgency=low
 
   * Fix typo in grub-set-default calls when generating /boot/grub/default

@@ -54,18 +54,14 @@ ifeq ($(DEB_BUILD_GNU_CPU),x86_64)
   LDFLAGS=-static
 endif
 
-patch:
-	dh_quilt_patch
-
-unpatch:
-	dh_quilt_unpatch
+include /usr/share/quilt/quilt.make
 
 configure: configure-stamp
-configure-stamp: patch
+configure-stamp: $(QUILT_STAMPFN)
 	dh_testdir
 
 	# Add here commands to configure the package.
-	aclocal-1.9 && automake-1.9 && autoconf
+	dh_autoreconf
 	LDFLAGS=$(LDFLAGS) ./configure \
 		--host=$(DEB_HOST_GNU_TYPE) \
 		--build=$(DEB_BUILD_GNU_TYPE) \
@@ -152,6 +148,8 @@ clean:
 	-rm -f $(shell find . -name 'Makefile.in' -o \
                     -name 'aclocal.m4' -o \
                     -name 'configure')
+
+	dh_autoreconf_clean
 
 	# reverse patches we applied. this has to happen after make distclean
 	-$(MAKE) -s -f debian/rules unpatch
@@ -246,4 +244,4 @@ binary-arch: build-arch install-arch
 	$(MAKE) -f debian/rules DH_OPTIONS=-a binary-common
 
 binary: binary-arch binary-indep
-.PHONY: build clean binary-indep binary-arch binary install install-indep install-arch configure patch unpatch
+.PHONY: build clean binary-indep binary-arch binary install install-indep install-arch configure

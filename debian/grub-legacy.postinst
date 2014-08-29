@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 case "$1" in
   configure)
     if egrep -q '^[[:space:]]*post(inst|rm)_hook[[:space:]]*=[[:space:]]*(/sbin/|/usr/sbin/)?update-grub' /etc/kernel-img.conf 2>/dev/null; then

@@ -6,16 +6,15 @@ Uploaders: Robert Millan <rmh.debian@aybabtu.com>, Felix Zielcke <fzielcke@z-51.
 DM-Upload-Allowed: yes
 Build-Depends: debhelper (>= 5),
  quilt (>= 0.46-7),
- automake1.9,
- autoconf,
- autotools-dev,
+ dh-autoreconf,
  texinfo,
  libncurses5-dev | libncurses-dev,
  lib32ncurses5-dev [amd64],
  gcc-multilib [amd64]
 Build-Depends-Indep: texi2html
 Standards-Version: 3.8.3
-Vcs-Svn: svn://svn.debian.org/svn/pkg-grub/grub/
+Vcs-Bzr: http://anonscm.debian.org/bzr/pkg-grub/trunk/grub-legacy/
+Vcs-Browser: http://anonscm.debian.org/loggerhead/pkg-grub/trunk/grub-legacy/
 
 Package: grub-legacy
 Architecture: i386 hurd-i386 amd64
