@@ -3,13 +3,6 @@
 	* docs/boot.S: Fix missing newline at the end.
 	* docs/boot.S.texi: Regenerate.
 
-2008-09-03  Felix Zielcke  <fzielcke@z-51.de>
-
-	Based on patch from Ville Skyttä <ville.skytta@iki.fi>
-	* docs/multiboot.texi: Fix some spelling.
-	* docs/internals.texi: Likewise.
-	* docs/grub.texi: Likewise.
-
 2008-05-20  Robert Millan  <rmh@aybabtu.com>
 
 	* netboot/cs89x0.c: Fix license violation.
@@ -63,18 +56,6 @@
 	the variables later declared static.  Move BOOTP_DATA_ADDR ...
 	* netboot/main.c: ... here.  Eliminate end_of_rfc1533 - it's
 	write-only.
-
-2006-06-24  Yoshinori K. Okuji  <okuji@enbug.org>
-
-	* docs/grub.texi: Changed the license term to the GNU Free
-	Documentation License 1.2.
-
-	* docs/multiboot.texi: Reformatted to show the license term
-	and the version number explicitly.
-	
-	* docs/fdl.texi: New file.
-	
-	* docs/Makefile.am (grub_TEXINFOS): Added fdl.texi.
 
 2006-06-24  Robert Millan  <robertmh@gnu.org>
 

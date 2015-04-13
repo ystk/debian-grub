@@ -26,3 +26,4 @@ no-reorder-functions.patch
 # We aren't building amd64 binaries, see #244498
 #fix_amd64_compile.patch
 modern-automake.patch
+no-combine-stack-adjustments.patch

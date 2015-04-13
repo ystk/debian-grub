@@ -1,3 +1,23 @@
+grub (0.97-70) unstable; urgency=medium
+
+  * Stop linking statically on amd64, which was a holdover from a long time
+    ago when we couldn't just depend on biarch libraries (closes: #769349).
+
+ -- Colin Watson <cjwatson@debian.org>  Sun, 16 Nov 2014 17:57:54 +0000
+
+grub (0.97-69) unstable; urgency=medium
+
+  * Revert the parts of the CVS sync in 0.97-8 that introduced the GNU FDL,
+    restoring the version of the documentation from the 0.97 release that
+    was under a simple permissive licence; this undoes a few minor textual
+    fixes, but avoids problems with Front-Cover and Back-Cover Texts without
+    having to create a separate grub-legacy-doc package in non-free (closes:
+    #708946).
+  * Build with -fno-combine-stack-adjustments, since that optimisation pass
+    confuses the stack games played by GRUB itself (closes: #768135).
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 07 Nov 2014 12:19:38 +0000
+
 grub (0.97-68) unstable; urgency=low
 
   * Update Vcs-* fields for Bazaar (closes: #628651).
